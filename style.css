@@ -1,0 +1,122 @@
+@font-face {
+  font-family: "kanit-medium";
+  src: url("asset/fonts/Kanit/Kanit-Medium.ttf");
+}
+
+@keyframes mascot {
+  0%, 100% {bottom: 0;}
+  50% {
+    bottom: -100px;
+  }
+}
+
+[data-natcha-theme=dark] {
+  --text-01: #EEF7FF;;
+  --text-02: #EEF7FF;;
+  --text-03: #EEF7FF;;
+  --bg-color: #121212;
+  --button-toggle: #EEF7FF;
+  --bg-button-toggle: #44624a;
+}
+
+[data-natcha-theme=light] {
+  --text-01: #44624a;
+  --text-02: #8ba888;
+  --bg-color: #EEF7FF;
+  --button-toggle: #EEF7FF;
+  --bg-button-toggle: #8ba888;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "kanit-medium";
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bg-color);
+  transition: all 1s;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.button-toggle {
+  color: var(--button-toggle);
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--bg-button-toggle);
+  font-size: 1.5em;
+  cursor: grab;
+  border-radius: 5px;
+}
+
+.button-toggle:active {
+  cursor: grabbing;
+}
+
+.text {
+  background-image: linear-gradient(
+    45deg,
+    var(--text-01),
+    var(--text-02));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  height: 100%;
+  font-size: 72px;
+}
+
+.image{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  animation: mascot 5s linear infinite;
+}
+
+.image > img{
+  width: 512px;
+}
+
+@media (max-width: 1100px) {
+  .text {
+    font-size: 48px;
+  }
+  .image > img{
+    width: 256px;
+  }
+}
+
+@media (max-width: 640px) {
+  main {
+    flex-direction: column;
+    gap: 0px;
+  }
+  .text {
+    height: fit-content;
+    align-items: center;
+    font-size: 48px;
+  }
+  
+  .image{
+    height: fit-content;
+  }
+}
+
